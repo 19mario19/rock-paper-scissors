@@ -10,7 +10,7 @@ body {
   overflow-x: hidden;
   font-weight: 200;
   font-family: 'Lora', serif;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 * {
@@ -28,8 +28,12 @@ li {
   list-style: none;
 }
 
+span, button {
+  border-radius: 10px;
+}
+
 .App {
-  padding: 2rem 5rem;
+  padding: 1rem 5rem;
 }
 
 .select {
@@ -42,7 +46,7 @@ li {
 }
 
 .game p {
-  margin: 1rem 0;
+  margin: .5rem 0;
 }
 
 .game p span {
@@ -60,6 +64,10 @@ li {
   transition: all 50ms ease-in-out;
 }
 
+.game li {
+  margin: .5rem 0;
+}
+
 .game button:active {
   transform: scale(.95);
 }
@@ -67,8 +75,18 @@ li {
   opacity: .9;
 }
 
+.result {
+  display: flex;
+  gap: 1rem;
+}
+
 .result span {
-  font-size: 55px;
+  font-size: 40px;
+  border: 3px solid var(--green);
+  padding: .1rem 1rem;
+  display: inline-block;
+  margin: .5rem 0;
+  
 }
 
 
