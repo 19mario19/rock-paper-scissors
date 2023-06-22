@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 216.58 239.61" version="1.0">
+  <g id="layer2" transform="translate(-15.643 -7.0166)">
+    <g id="g4970" transform="matrix(0 1 -1 0 257.82 2.8888)">
+      <path id="path4958" d="m40.742 211.48s184.73-107.69 201.52-172.45c16.79-64.757-201.52 172.45-201.52 172.45z" fill-rule="evenodd" stroke="#000" stroke-width="1.1042px" fill="#c8beb7"/>
+      <path id="path4960" d="m214.21 211.69s-191.18-108.79-208.56-174.21c-17.384-65.416 208.56 174.21 208.56 174.21z" fill-rule="evenodd" stroke="#000" stroke-width="1.1291px" fill="#c8beb7"/>
+      <path id="path4954" d="m86.429 175.71a32.857 32.857 0 1 1 -65.715 0 32.857 32.857 0 1 1 65.715 0z" transform="translate(-15.714 32.857)" stroke="#000" stroke-width="1.5" fill="#c8beb7"/>
+      <path id="path4956" d="m86.429 175.71a32.857 32.857 0 1 1 -65.715 0 32.857 32.857 0 1 1 65.715 0z" transform="translate(152.14 31.429)" stroke="#000" stroke-width="1.5" fill="#c8beb7"/>
+      <path id="path4962" stroke-width="0" transform="matrix(1 0 0 1.5556 -.71428 -82.54)" fill="#504416" d="m129.69 145.36a5.2008 3.2143 0 1 1 -10.4 0 5.2008 3.2143 0 1 1 10.4 0z"/>
+      <path id="path4964" d="m195 311.43a28.571 28.571 0 1 1 -57.14 0 28.571 28.571 0 1 1 57.14 0z" transform="matrix(.9 0 0 .9125 -111.93 -75.964)" stroke="#000" stroke-width="1.6552" fill="#fff"/>
+      <path id="path4966" d="m195 311.43a28.571 28.571 0 1 1 -57.14 0 28.571 28.571 0 1 1 57.14 0z" transform="matrix(.9 0 0 .9125 55.929 -77.036)" stroke="#000" stroke-width="1.6552" fill="#fff"/>
+    </g>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Scissors</dc:title>
+        <dc:date>2008-10-18T19:46:38</dc:date>
+        <dc:description>clip art, clipart, image, media, office, office, png, public domain, scissors, scissors, svg, </dc:description>
+        <dc:source>http://openclipart.org/detail/19632/scissors-by-schoolfreeware</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>schoolfreeware</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>office</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>scissors</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

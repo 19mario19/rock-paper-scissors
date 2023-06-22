@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react"
-import Backdrop from "../Modal/Backdrop"
-import Modal from "../Modal/Modal"
-import rock from "../assets/rock.png"
-import paper from "../assets/paper.png"
-import scissors from "../assets/scissors.png"
+import rock from "../assets/rock.svg"
+import paper from "../assets/paper.svg"
+import scissors from "../assets/scissors.svg"
 
 function Game() {
-  const list = ["rock", "paper", "scissors"]
-  const listImg = [rock, paper, scissors]
+  const list = [
+    {
+      name: "rock",
+      image: rock,
+    },
+    {
+      name: "paper",
+      image: paper,
+    },
+    {
+      name: "scissors",
+      image: scissors,
+    },
+  ]
   const [selector, setSelector] = useState("")
   const [random, setRandom] = useState("")
   const [count, setCount] = useState({
@@ -17,12 +27,6 @@ function Game() {
   })
   const [history, setHistory] = useState([])
   const [message, setMessage] = useState("Waiting...")
-
-  const total = count.defeat + count.equal + count.triumf
-
-  function percent(percent, total) {
-    return percent ? (percent * 100) / total : 0
-  }
 
   // Reset after two seconds
   function reset(time) {
@@ -34,56 +38,57 @@ function Game() {
   }
 
   // Sync data
-
   useEffect(() => {
     if (selector) {
       createRandom()
+      reset(600)
     }
   }, [selector])
 
   // Play button
   function createRandom() {
     const rand = Math.floor(Math.random() * list.length)
-    const out = list[rand]
+    const out = list[rand].name
+
     if (rules(selector, out) === "Select one") {
       setRandom("")
       setMessage("Select one")
       return
     }
     setRandom(out)
-    const scoreMessage = `${selector} vs ${out} ${rules(selector, out)}`
-    setHistory((prev) => [scoreMessage, ...prev])
+    const scoreMessage = `${selector} vs ${out} ${rules(
+      selector,
+      out,
+    ).toUpperCase()}`
+    setHistory((prev) => [...prev, scoreMessage])
 
     // Adding count
-
     let result = rules(selector, out)
-
     if (result === "Triumph") {
       setCount((prev) => {
         return {
           ...prev,
-          triumf: count.triumf + 1,
+          triumf: count.triumf + 10,
         }
       })
     } else if (result === "Defeat") {
       setCount((prev) => {
         return {
           ...prev,
-          defeat: count.defeat + 1,
+          defeat: count.defeat + 10,
         }
       })
     } else if (result === "Equal") {
       setCount((prev) => {
         return {
           ...prev,
-          equal: count.equal + 1,
+          equal: count.equal + 0,
         }
       })
     } else {
       setMessage("Select one")
     }
   }
-
   function selectOption(el) {
     setSelector(el)
     setRandom("")
@@ -115,83 +120,150 @@ function Game() {
         return "Defeat"
       }
     }
-
     if (choise === "") {
       return "Select one"
     }
   }
 
+  // Add border to win or lose when it changes for two seconds
+  const [highlight, setHighlight] = useState("")
+  const [highlight2, setHighlight2] = useState("")
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHighlight("")
+    }, 600)
+    setHighlight("highlight")
+  }, [count.defeat])
+  useEffect(() => {
+    setTimeout(() => {
+      setHighlight2("")
+    }, 600)
+    setHighlight2("highlight")
+  }, [count.triumf])
+
+  // Add animation for n seconds
+  const [animation, setAnimation] = useState("")
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimation("add-animation")
+    }, 250)
+    setAnimation("")
+  }, [])
+
+  // Disable click
+  const [enable, setEnable] = useState(true)
+  function enableClick() {
+    setEnable((prev) => !prev)
+  }
+
   return (
     <div className="game">
+      <div className="background-image"></div>
       <div className="main">
         <div className="left">
-          {/* <h5>You:</h5> */}
           <ul>
             {list &&
               list.map((el, index) => {
                 return (
                   <li
-                    name={el}
+                    name={el.name}
                     key={index}
-                    className={selector === el ? "select" : ""}
+                    className={selector === el.name ? "select" : ""}
                     onClick={() => {
-                      selectOption(el)
+                      selectOption(el.name)
                       createRandom()
                     }}
                   >
-                    {el}
+                    <img src={el.image} alt={el.name} />
                   </li>
                 )
               })}
           </ul>
         </div>
+
         <div className="middle">
-          <p>{history && history[0]}</p>
+          <div className="images add-animation">
+            <p>
+              {list &&
+                list
+                  .filter((el) => {
+                    return el.name === selector
+                  })
+                  .map((el) => {
+                    return (
+                      <img
+                        className="image-size "
+                        src={el.image}
+                        alt={el.name}
+                      />
+                    )
+                  })}
+            </p>
+            <p>
+              {list &&
+                list
+                  .filter((el) => {
+                    return el.name === random
+                  })
+                  .map((el) => {
+                    return (
+                      <img
+                        className="image-size "
+                        src={el.image}
+                        alt={el.name}
+                      />
+                    )
+                  })}
+            </p>
+          </div>
         </div>
+
         <div className="right">
-          {/* <h5>Computer's choise:</h5> */}
           <ul>
             {list &&
               list.map((el, index) => {
                 return (
                   <li
-                    name={el}
+                    name={el.name}
                     key={index}
-                    className={random === el ? "select" : ""}
+                    className={random === el.name ? "select" : ""}
                   >
-                    {el}
+                    <img src={el.image} alt={el.name} />
                   </li>
                 )
               })}
           </ul>
         </div>
       </div>
-      {/* <div className="outcome">
-        <p>
-          {random
-            ? rules(selector, random).toUpperCase()
-            : message.toUpperCase()}
-        </p>
-      </div> */}
       <div className="side">
         <div className="count">
-          <p className="triumf">
+          <p className={`triumf ${highlight2}`}>
             <span>{count.triumf}</span>
           </p>
-          <p className="defeat">
+          <p className={`defeat ${highlight}`}>
             <span>{count.defeat}</span>
           </p>
         </div>
-        <div className="history">
-          <ul>
-            {history &&
-              history.map((el, index) => {
-                return <li key={index}>{el}</li>
-              })}
-          </ul>
-        </div>
+
+        {history.length > 0 && (
+          <div className="history">
+            <ul>
+              {history &&
+                history.map((el, index) => {
+                  return (
+                    <li
+                      className={index === history.length - 1 ? animation : ""}
+                      key={index}
+                    >
+                      {el}
+                    </li>
+                  )
+                })}
+            </ul>
+          </div>
+        )}
       </div>
-      {/* <button onClick={createRandom}>Play</button> */}
     </div>
   )
 }
